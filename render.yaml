@@ -13,8 +13,9 @@ services:
       - key: JWT_SECRET
         sync: false
 
-  - type: static  # ✅ changed from web to static
+  - type: web
     name: gmstudio-frontend
+    env: static  # ✅ this is the correct value for static sites
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
