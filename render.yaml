@@ -1,13 +1,11 @@
 services:
   - type: web
-    name: gmstudio-frontend
-    env: static
+    name: gmstudio-backend
+    env: node
     plan: free
-    buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: frontend/dist
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
     envVars:
-      - key: VITE_API_BASE_URL
-        sync: false
       - key: PORT
         value: 10000
       - key: MONGO_URI
@@ -18,6 +16,7 @@ services:
   - type: web
     name: gmstudio-frontend
     env: static
+    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
     envVars:
