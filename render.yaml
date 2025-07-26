@@ -15,9 +15,10 @@ services:
 
   - type: web
     name: gmstudio-frontend
-    env: static  # ✅ this is the correct value for static sites
+    env: static
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/dist
+    plan: free
     envVars:
       - key: VITE_API_BASE_URL
         sync: false
